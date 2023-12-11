@@ -1,12 +1,17 @@
-
+import ArticleList from "../components/ArticleList";
+import Header from "../components/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "../src/app.css";
 
 const App = () => {
-
   return (
-    <>
-     <h1>App</h1>
-    </>
-  )
-}
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<ArticleList />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
