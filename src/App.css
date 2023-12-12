@@ -56,7 +56,7 @@ h1 {
   padding: 0px;
 }
 
-#article-card {
+.article-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -69,13 +69,12 @@ h1 {
   background-color: #f9f9f9;
 }
 
-#article-card:hover {
-  border: 1px solid #c2c2c2;
-  background-color: #eaeaea;
-  cursor: pointer;
+.loading {
+  text-align: center;
+  margin-top: 20px;
 }
 
-#article-card h3 {
+.article-card h3 {
   color: #333333;
   font-size: 1.3em;
   margin-bottom: 10px;
@@ -83,8 +82,8 @@ h1 {
   text-transform: uppercase;
 }
 
-#article-card a:hover {
-  color: #999999;
+.article-card h3:hover, .article-card img:hover{
+opacity: 80%;
 }
 
 .topic-name {
@@ -124,4 +123,45 @@ h1 {
   font-size: 0.9em;
   margin-bottom: 5px;
   font-weight: bold;
+}
+
+.article-title {
+  margin: 20px;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: black;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.article-img {
+  width:300px;
+  float: left;
+  margin: 0px 20px;
+}
+
+.article-body {
+  margin: 0px 20px;
+}
+
+.article-section {
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vote-comments-article {
+  border-top: 1px solid #dddddd;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #dddddd;
+}
+
+@media only screen and (min-width:820px) {
+  .vote-comments-article {
+    padding:10px 100px;
+    justify-content: space-around;
+  }
 }

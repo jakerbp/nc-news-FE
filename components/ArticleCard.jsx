@@ -1,20 +1,22 @@
+import { Link } from "react-router-dom";
+
 const ArticleCard = ({ article }) => {
   const postedDate = new Date(article.created_at).toLocaleString();
 
   return (
-    <li id="article-card">
-      <h3>{article.title}</h3>
+    <li className="article-card">
+      <Link to={`/articles/${article.article_id}`}>
+        <h3>{article.title}</h3>
+      </Link>
       <p className="topic-name">{article.topic}</p>
-      <img className="img-placeholder" src={article.article_img_url} alt={article.title}/>
+      <Link to={`/articles/${article.article_id}`}>
+        <img className="img-placeholder" src={article.article_img_url} />
+      </Link>
       <p className="date-posted">{postedDate}</p>
       <p className="username">by {article.author}</p>
       <div className="vote-comments">
-        <a className="vote-count" href="#">
-          {article.votes} Votes
-        </a>
-        <a className="comment-count" href="#">
-          {article.comment_count} Comments
-        </a>
+        <p className="vote-count">{article.votes} Votes</p>
+        <p className="comment-count">{article.comment_count} Comments</p>
       </div>
     </li>
   );
