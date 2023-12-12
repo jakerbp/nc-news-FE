@@ -165,3 +165,11 @@ opacity: 80%;
     justify-content: space-around;
   }
 }
+
+.vote-button {
+  border-radius: 30px;
+  padding: 3px 6px;
+  background-color: rgb(83, 180, 114);
+  border: 0px;
+  cursor: pointer;
+}
