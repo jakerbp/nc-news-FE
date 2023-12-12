@@ -69,7 +69,10 @@ h1 {
   background-color: #f9f9f9;
 }
 
-
+.loading {
+  text-align: center;
+  margin-top: 20px;
+}
 
 .article-card h3 {
   color: #333333;
@@ -129,4 +132,36 @@ opacity: 80%;
   color: black;
   padding-bottom: 10px;
   border-bottom: 1px solid #dddddd;
+}
+
+.article-img {
+  width:300px;
+  float: left;
+  margin: 0px 20px;
+}
+
+.article-body {
+  margin: 0px 20px;
+}
+
+.article-section {
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vote-comments-article {
+  border-top: 1px solid #dddddd;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #dddddd;
+}
+
+@media only screen and (min-width:820px) {
+  .vote-comments-article {
+    padding:10px 100px;
+    justify-content: space-around;
+  }
 }
