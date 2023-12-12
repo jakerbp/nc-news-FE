@@ -1,0 +1,127 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#header-section {
+  background-color: #555555;
+  height: 120px;
+  border-bottom: 1px solid #333333;
+  margin: 0px;
+  padding-top: 20px;
+}
+
+h1 {
+  margin: 0 20px 20px 20px;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: black;
+}
+
+#nav-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+  margin-left: 10px;
+}
+
+#nav-section a {
+  background-color: #eaeaea;
+  margin-right: 10px;
+  padding: 6px 12px;
+  border-radius: 0px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: black;
+}
+
+#nav-section a:hover {
+  color: #333333;
+  background-color: #f9f9f9;
+}
+
+#article-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-top: 20px;
+  padding: 0px;
+}
+
+#article-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  border: 1px solid #dddddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  list-style-type: none;
+  background-color: #f9f9f9;
+}
+
+#article-card:hover {
+  border: 1px solid #c2c2c2;
+  background-color: #eaeaea;
+  cursor: pointer;
+}
+
+#article-card h3 {
+  color: #333333;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+#article-card a:hover {
+  color: #999999;
+}
+
+.topic-name {
+  color: #666666;
+  font-style: italic;
+  margin-bottom: 10px;
+  height: 1.5rem;
+  padding-top: 4px;
+  border-top: 1px solid #dddddd;
+  text-transform: capitalize;
+}
+
+.img-placeholder {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.vote-comments {
+  border-top: 1px solid #dddddd;
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.date-posted,
+.vote-count,
+.comment-count {
+  color: #555555;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.username {
+  color: #555555;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
