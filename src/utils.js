@@ -46,4 +46,17 @@ const updateVote = (value, voteCount, setVoteCount, article_id, setDisabled, set
       });
   }
 
-export { fetchArticles, fetchArticle, updateVote, patchVote };
+
+const fetchComments = ({ article_id }) => {
+  return newsApi
+    .get(`articles/${article_id}/comments`)
+    .then((res) => {
+      return res.data.articleComments;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export { fetchArticles, fetchArticle, fetchComments };
+
