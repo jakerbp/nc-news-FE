@@ -1,30 +1,28 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import CommentCard from "./CommentCard";
+import { fetchComments } from "../src/utils";
 
 const CommentList = ({ article_id }) => {
   const [comments, setComments] = useState([]);
   const [loadingComments, setLoadingComments] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://newssite-zy4v.onrender.com/api/articles/${article_id}/comments`
-      )
-      .then((res) => {
-        setComments(res.data.articleComments);
-        setLoadingComments(false);
-      });
+    fetchComments({ article_id }).then((articleComments) => {
+      setComments(articleComments);
+      setLoadingComments(false);
+    });
   }, []);
 
   if (loadingComments) return <h2 className="loading">LOADING...</h2>;
+  if (!comments.length) return <h3 className="loading">No comments yet...</h3>;
 
-  return <section className="comment-section">
-   
-    {comments.map((comment)=>{
-        return <CommentCard comment={comment} key={comment.comment_id}/>
-    })}
-    </section >;
+  return (
+    <section className="comment-section">
+      {comments.map((comment) => {
+        return <CommentCard comment={comment} key={comment.comment_id} />;
+      })}
+    </section>
+  );
 };
 
 export default CommentList;
