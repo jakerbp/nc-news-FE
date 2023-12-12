@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
-import axios from "axios";
+import fetchArticles from "../src/utils";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    axios.get("https://newssite-zy4v.onrender.com/api/articles").then((res) => {
-      setArticles(res.data.articles);
+    fetchArticles().then((articlesData) => {
+      setArticles(articlesData);
     });
   }, []);
 
