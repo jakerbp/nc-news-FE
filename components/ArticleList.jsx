@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
-import axios from "axios";
+import {fetchArticles} from "../src/utils";
 
 
 const ArticleList = () => {
@@ -8,8 +8,8 @@ const ArticleList = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios.get("https://newssite-zy4v.onrender.com/api/articles").then((res) => {
-      setArticles(res.data.articles);
+    fetchArticles().then((articlesData) => {
+      setArticles(articlesData);
       setLoading(false)
     });
   }, []);

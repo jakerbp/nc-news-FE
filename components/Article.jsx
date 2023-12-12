@@ -1,23 +1,22 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import CommentList from "./CommentList";
+import {fetchArticle} from "../src/utils";
+
 
 const Article = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
   const [loading, setLoading] = useState(true);
-  
-  useEffect(() => {
-    axios
-      .get(`https://newssite-zy4v.onrender.com/api/articles/${article_id}`)
-      .then((res) => {
-        setArticle(res.data.article);
-        setLoading(false);
-      });
-  }, []);
-  const postedDate = new Date(article.created_at).toLocaleString();
 
+  useEffect(() => {
+    fetchArticle({article_id}).then((articlesData) => {
+      setArticle(articlesData);
+      setLoading(false)
+    });
+  }, []);
+
+  const postedDate = new Date(article.created_at).toLocaleString();
 
   if (loading) return <h2 className="loading">LOADING...</h2>;
 
