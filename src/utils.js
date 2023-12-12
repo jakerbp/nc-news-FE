@@ -26,4 +26,15 @@ const fetchArticle = ({ article_id }) => {
     });
 };
 
-export { fetchArticles, fetchArticle };
+const fetchComments = ({ article_id }) => {
+  return newsApi
+    .get(`articles/${article_id}/comments`)
+    .then((res) => {
+      return res.data.articleComments;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export { fetchArticles, fetchArticle, fetchComments };

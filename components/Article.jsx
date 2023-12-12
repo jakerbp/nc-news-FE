@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import CommentList from "./CommentList";
 import {fetchArticle} from "../src/utils";
+
 
 const Article = () => {
   const { article_id } = useParams();
@@ -22,7 +24,7 @@ const Article = () => {
     <article className="article-section">
       <div>
         <h2 className="article-title">{article.title}</h2>
-        <img src={article.article_img_url} className="article-img" />
+        <img src={article.article_img_url} className="article-img" alt={article.title}/>
         <p className="article-body">{article.body}</p>
       </div>
       <div className="vote-comments-article">
@@ -31,6 +33,8 @@ const Article = () => {
         <p className="vote-count">{article.votes} Votes</p>
         <p className="comment-count">{article.comment_count} Comments</p>
       </div>
+      <h3 className="comment-title">Comments:</h3>
+      <CommentList article_id={article_id}/>
     </article>
   );
 };
