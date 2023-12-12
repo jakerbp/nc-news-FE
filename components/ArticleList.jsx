@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
-import fetchArticles from "../src/utils";
+import {fetchArticles} from "../src/utils";
 
 
 const ArticleList = () => {
@@ -10,6 +10,7 @@ const ArticleList = () => {
   useEffect(() => {
     fetchArticles().then((articlesData) => {
       setArticles(articlesData);
+      setLoading(false)
     });
   }, []);
 
