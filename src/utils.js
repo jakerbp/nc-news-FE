@@ -58,5 +58,5 @@ const fetchComments = ({ article_id }) => {
     });
 };
 
-export { fetchArticles, fetchArticle, fetchComments };
+export { fetchArticles, fetchArticle, fetchComments, updateVote};
 
