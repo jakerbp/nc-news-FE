@@ -6,16 +6,22 @@ const PostComment = ({ article_id, setComments, setHideError }) => {
   const [commentMsg, setCommentMsg] = useState("");
   const { user } = useContext(UserContext);
   const [pendingSend, setPendingSend] = useState(false)
+  const [lengthError, setLengthError] = useState(true)
 
   return (
     <>
       <form
         className="post-comment-form"
         onSubmit={(e) => {
-            setCommentMsg('')
           e.preventDefault();
-          sendComment(article_id, user, commentMsg, setComments, setHideError, setPendingSend);
-          setPendingSend(true)
+          if (commentMsg.length>=5) {
+            setCommentMsg('')
+            setLengthError(true)
+            sendComment(article_id, user, commentMsg, setComments, setHideError, setPendingSend);
+            setPendingSend(true)
+          } else {
+setLengthError(false)
+          }
         }}
       >
         <label htmlFor="commentInput"> Post a comment: </label>
@@ -32,6 +38,7 @@ const PostComment = ({ article_id, setComments, setHideError }) => {
           Post
         </button>
       </form>
+        <p className="loading" hidden={lengthError}>Comment must be at least 5 characters in length to post!</p>
     </>
   );
 };
