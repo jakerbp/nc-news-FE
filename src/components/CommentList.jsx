@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CommentCard from "./CommentCard";
-import { fetchComments } from "../src/utils";
+import { fetchComments } from "../utils";
 import PostComment from "./PostComment";
 
 

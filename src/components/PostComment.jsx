@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
-import { UserContext } from "../src/contexts/User";
-import { sendComment } from "../src/utils";
+import { UserContext } from "../contexts/User";
+import { sendComment } from "../utils";
 
 const PostComment = ({ article_id, setComments, setHideError }) => {
   const [commentMsg, setCommentMsg] = useState("");

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
-import {fetchArticles} from "../src/utils";
+import {fetchArticles} from "../utils";
 
 
 const ArticleList = () => {

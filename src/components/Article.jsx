@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CommentList from "./CommentList";
-import {fetchArticle} from "../src/utils";
+import {fetchArticle} from "../utils";
 
 
 const Article = () => {
