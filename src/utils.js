@@ -37,4 +37,21 @@ const fetchComments = ({ article_id }) => {
     });
 };
 
-export { fetchArticles, fetchArticle, fetchComments };
+const sendComment = (article_id, user, commentMsg, setComments, setHideError, setPendingSend) => {
+  const commentData = {
+    username: user,
+    body: commentMsg,
+  };
+
+  return newsApi
+    .post(`/articles/${article_id}/comments`, commentData)
+    .then(({ data }) => {
+      setComments((currentComments) => [data.addedComment, ...currentComments]);
+      setHideError(true)
+      setPendingSend(false)
+    }).catch((err)=>{
+        setHideError(false)
+    });
+};
+
+export { fetchArticles, fetchArticle, fetchComments, sendComment };

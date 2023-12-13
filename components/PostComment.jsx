@@ -1,13 +1,39 @@
-const PostComment = () => {
+import { useState, useContext } from "react";
+import { UserContext } from "../src/contexts/User";
+import { sendComment } from "../src/utils";
 
-return (<>
-<form className="post-comment-form">
-<label htmlFor="post-comment"> Post a comment: </label>
-<input className="post-comment-input" id="post-comment"></input>
+const PostComment = ({ article_id, setComments, setHideError }) => {
+  const [commentMsg, setCommentMsg] = useState("");
+  const { user } = useContext(UserContext);
+  const [pendingSend, setPendingSend] = useState(false)
 
-<button className="post-comment-btn">POST</button>
-</form>
-</>)
-}
+  return (
+    <>
+      <form
+        className="post-comment-form"
+        onSubmit={(e) => {
+            setCommentMsg('')
+          e.preventDefault();
+          sendComment(article_id, user, commentMsg, setComments, setHideError, setPendingSend);
+          setPendingSend(true)
+        }}
+      >
+        <label htmlFor="commentInput"> Post a comment: </label>
+        <textarea
+          onChange={() => {
+            setCommentMsg(commentInput.value);
+          }}
+          value={commentMsg}
+          className="post-comment-input"
+          id="commentInput"
+          placeholder="Type a comment..."
+        ></textarea>
+        <button className="post-comment-btn" disabled={pendingSend}> 
+          Post
+        </button>
+      </form>
+    </>
+  );
+};
 
-export default PostComment
+export default PostComment;
