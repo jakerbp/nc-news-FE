@@ -176,6 +176,11 @@ opacity: 80%;
   cursor: pointer;
 }
 
+.vote-button:disabled {
+  background-color: #aebed3; 
+  cursor: not-allowed;
+}
+
 .comment-card {
   background-color: #dddddd;
   border-radius: 6px;

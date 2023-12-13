@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchArticle, updateVote } from "../src/utils";
+import { fetchArticle, updateVote } from "../utils";
 import CommentList from "./CommentList";
 
 const Article = () => {
