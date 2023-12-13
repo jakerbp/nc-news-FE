@@ -168,6 +168,14 @@ opacity: 80%;
   }
 }
 
+.vote-button {
+  border-radius: 30px;
+  padding: 3px 6px;
+  background-color: rgb(83, 180, 114);
+  border: 0px;
+  cursor: pointer;
+}
+
 .comment-card {
   background-color: #dddddd;
   border-radius: 6px;

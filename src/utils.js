@@ -26,6 +26,27 @@ const fetchArticle = ({ article_id }) => {
     });
 };
 
+const patchVote = (article_id) => {
+    return newsApi
+    .patch(`/articles/${article_id}`,{inc_votes:1})
+}
+
+const updateVote = (value, voteCount, setVoteCount, article_id, setDisabled, setHideVoteFail) => {
+    let updatedVoteCount = voteCount + value
+    setVoteCount(updatedVoteCount);
+    patchVote(article_id)
+      .then(() => {
+        setDisabled(true)
+        setHideVoteFail(true)
+      })
+      .catch((err) => {
+        setVoteCount(updatedVoteCount - value);
+        setDisabled(false)
+        setHideVoteFail(false)
+      });
+  }
+
+
 const fetchComments = ({ article_id }) => {
   return newsApi
     .get(`articles/${article_id}/comments`)
@@ -37,4 +58,5 @@ const fetchComments = ({ article_id }) => {
     });
 };
 
-export { fetchArticles, fetchArticle, fetchComments };
+export { fetchArticles, fetchArticle, fetchComments, updateVote};
+
