@@ -278,6 +278,44 @@ margin-left:20px;
 }
 
 .post-comment-btn:disabled {
-  background-color: #aebed3; 
+  background-color: #aed3bd; 
   cursor: not-allowed;
+}
+
+.delete-comment {
+background-color: rgb(230, 73, 73);
+color: white;
+border: 0px;
+
+font-size: small;
+text-align: center;
+padding: 2px 8px;
+border-radius: 6px;
+margin-top: 6px;
+margin-right: 6px;
+}
+
+.delete-comment:hover {
+  background-color: rgb(187, 55, 55);
+  cursor: pointer;
+}
+
+.delete-comment:disabled {
+  background-color: rgb(218, 193, 193);
+  cursor: not-allowed;
+}
+
+.comment-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.deleting {
+  background-color: #dddddd;
+  border-radius: 6px;
+  margin: 0px 20px 10px 20px;
+  padding: 10px 20px;
+  opacity: 30%;
+  transition: 2s all ease-out;
 }
