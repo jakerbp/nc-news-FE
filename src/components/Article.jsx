@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { fetchArticle, updateVote } from "../utils";
 import CommentList from "./CommentList";
 
-
-
 const Article = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);

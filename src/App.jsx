@@ -1,7 +1,7 @@
 import ArticleList from "./components/ArticleList";
 import Header from "./components/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "../src/App.css";
+import "./App.css";
 import Article from "./components/Article";
 
 const App = () => {
