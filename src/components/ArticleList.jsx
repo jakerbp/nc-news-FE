@@ -8,21 +8,30 @@ const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [sort, setSort] = useState(null);
 
   const filterTopic = searchParams.get("topic");
+  const sortBy = searchParams.get("sort_by");
+  const orderBy = searchParams.get("order");
+
+  let query ='';
+  
+  if (sortBy && orderBy) {
+    query = `?sort_by=${sortBy}&order=${orderBy}`;
+  }
 
   useEffect(() => {
-    fetchArticles().then((articlesData) => {
+    fetchArticles(query).then((articlesData) => {
       setArticles(articlesData);
       setLoading(false);
     });
-  }, []);
+  }, [sort]);
 
   if (loading) return <h2 className="loading">LOADING...</h2>;
 
   return (
     <>
-      <TopicList/>
+      <TopicList setSort={setSort}/>
       <div id="article-list-section">
         <ol id="article-list">
           {articles.map((article) => {
