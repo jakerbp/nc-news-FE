@@ -75,5 +75,19 @@ const sendComment = (article_id, user, commentMsg, setComments, setHideError, se
     });
 };
 
-export { fetchArticles, fetchArticle, fetchComments, sendComment, updateVote };
+const deleteComment = (comment_id, setOptimisticDelete, setPendingDelete, setClassSwitch, setDeleteText) => {
+  return newsApi
+    .delete(`/comments/${comment_id}`)
+    .then(()=>{
+      setTimeout(()=>{setOptimisticDelete(true)}, 2000)
+    }).catch((err)=>{
+      setOptimisticDelete(false)
+      setTimeout(()=>{setClassSwitch('comment-card')
+      setPendingDelete(false)
+      setDeleteText('Delete')}, 2000)
+      console.log(err)
+    })
+}
+
+export { fetchArticles, fetchArticle, fetchComments, sendComment, updateVote, deleteComment };
 
