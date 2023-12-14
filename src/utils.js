@@ -4,9 +4,9 @@ const newsApi = axios.create({
   baseURL: "https://newssite-zy4v.onrender.com/api/",
 });
 
-const fetchArticles = () => {
+const fetchArticles = (query) => {
   return newsApi
-    .get("/articles")
+    .get(`/articles${query}`)
     .then((res) => {
       return res.data.articles;
     })
