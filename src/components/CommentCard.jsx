@@ -28,7 +28,7 @@ const CommentCard = ({ comment }) => {
             className="delete-comment"
             hidden={user !== comment.author}
             onClick={() => {
-              deleteComment(comment.comment_id, setOptimisticDelete);
+              deleteComment(comment.comment_id, setOptimisticDelete, setPendingDelete, setClassSwitch, setDeleteText);
               setPendingDelete(true);
               setClassSwitch('deleting')
               setDeleteText('Deleting...')
