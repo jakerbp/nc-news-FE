@@ -89,5 +89,16 @@ const deleteComment = (comment_id, setOptimisticDelete, setPendingDelete, setCla
     })
 }
 
-export { fetchArticles, fetchArticle, fetchComments, sendComment, updateVote, deleteComment };
+const fetchTopics = () => {
+  return newsApi
+    .get("/topics")
+    .then((res) => {
+      return res.data.topics;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export { fetchArticles, fetchArticle, fetchComments, sendComment, updateVote, deleteComment, fetchTopics };
 
