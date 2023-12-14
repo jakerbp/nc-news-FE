@@ -22,7 +22,7 @@ const ArticleList = () => {
 
   return (
     <>
-      <TopicList/>
+      <TopicList filterTopic={filterTopic} />
       <div id="article-list-section">
         <ol id="article-list">
           {articles.map((article) => {
