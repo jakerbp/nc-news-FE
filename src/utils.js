@@ -1,4 +1,5 @@
 import axios from "axios";
+import Errors from "./components/Errors";
 
 const newsApi = axios.create({
   baseURL: "https://newssite-zy4v.onrender.com/api/",
@@ -22,7 +23,7 @@ const fetchArticle = ({ article_id }) => {
       return res.data.article;
     })
     .catch((err) => {
-      console.log(err);
+      return err
     });
 };
 

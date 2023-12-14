@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { fetchTopics } from "../utils";
+import Errors from "./Errors";
 
-const TopicList = ({ setSort }) => {
+
+const TopicList = ({ setSort, filterTopic }) => {
   const [topics, setTopics] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+
 
   const sortChanger = () => {
     setSort(sortDropdown.value);
@@ -19,15 +22,18 @@ const TopicList = ({ setSort }) => {
 
   useEffect(() => {
     fetchTopics().then((topicsData) => {
-      setTopics(topicsData);
-      setLoading(false);
+        setTopics(topicsData);
+        setLoading(false);
     });
-  }, []);
+},[])
+if (loading) return <h3 className="loading">LOADING...</h3>;
 
-  if (loading) return <h3 className="loading">LOADING...</h3>;
-
-  return (
+if(filterTopic && topics.some((topic)=>topic.slug===filterTopic)===false){
+    return <Errors msg={`${filterTopic} is not a topic`}/>
+}
+return(
     <div className="filter-sort">
+
       <ol className="topic-filter">
         <p className="filter-title">FILTER BY TOPIC:</p>
         <Link to={`/articles`}>
@@ -66,6 +72,7 @@ const TopicList = ({ setSort }) => {
         <option value={"&sort_by=votes&order=asc"}>Lowest upvoted first</option>
       </select>
     </div>
+
   );
 };
 

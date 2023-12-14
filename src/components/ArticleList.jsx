@@ -31,7 +31,8 @@ const ArticleList = () => {
 
   return (
     <>
-      <TopicList setSort={setSort}/>
+
+      <TopicList filterTopic={filterTopic} setSort={setSort} />
       <div id="article-list-section">
         <ol id="article-list">
           {articles.map((article) => {
