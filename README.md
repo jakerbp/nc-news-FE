@@ -1,8 +1,23 @@
-# React + Vite
+# NC-News
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a front-end project, pulling data from the News-Site API back end project found here - https://github.com/jakerbp/news-site
 
-Currently, two official plugins are available:
+## Live version
+Find a production version of the app running here - https://nc-news-jakep13.replit.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+please note, the server may take a minute to start if it has been dormant recently.
+
+## Running locally
+### 1. Clone locally
+1.1 Within your terminal, paste:
+    
+    git clone https://github.com/jakerbp/nc-news.git
+
+1.2 Install dependencies:
+
+    npm install
+
+### 2. Minimum requied versions:
+|Package    |Version  |
+|-----------|--------:|
+|Node.js    |   20.6.1|

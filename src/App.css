@@ -284,7 +284,7 @@ h1 {
 .post-comment-form {
   display: flex;
   flex-direction: row;
-  width: calc(100%-20px);
+  width: calc(100% - 20px);
   justify-content: center;
   align-items: baseline;
   margin-left: 20px;
