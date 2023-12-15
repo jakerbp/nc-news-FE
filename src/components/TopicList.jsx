@@ -26,6 +26,7 @@ const TopicList = ({ setSort, filterTopic }) => {
         setLoading(false);
     });
 },[])
+
 if (loading) return <h3 className="loading">LOADING...</h3>;
 
 if(filterTopic && topics.some((topic)=>topic.slug===filterTopic)===false){

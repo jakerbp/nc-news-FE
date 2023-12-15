@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchArticle, updateVote } from "../utils";
 import CommentList from "./CommentList";
 import Errors from "./Errors";
+import { HashLink } from 'react-router-hash-link';
 
 const Article = () => {
   const { article_id } = useParams();
@@ -37,7 +38,7 @@ const Article = () => {
   return (
     <article className="article-section">
       <div>
-        <h2 className="article-title">{article.title}</h2>
+        <h2 className="article-title">{article.title} </h2>
         <img
           src={article.article_img_url}
           className="article-img"
@@ -46,6 +47,9 @@ const Article = () => {
         <p className="article-body">{article.body}</p>
       </div>
       <div className="vote-comments-article">
+      <Link to={`/articles?topic=${article.topic}`}>
+        <p>#{article.topic}</p>
+      </Link>
         <p className="date-posted">{postedDate}</p>
         <p className="username">by {article.author}</p>
         <p className="vote-count">
@@ -67,12 +71,14 @@ const Article = () => {
             👍
           </button>
         </p>
+        <HashLink smooth to={`#comments`}>
         <p className="comment-count">{article.comment_count} Comments</p>
+        </HashLink>
       </div>
       <h3 className="loading" hidden={hideVoteFail}>
         Vote failed
       </h3>
-      <h3 className="comment-title">Comments:</h3>
+      <h3 className="comment-title" id="comments">Comments:</h3>
       <CommentList article_id={article_id} />
     </article>
   );

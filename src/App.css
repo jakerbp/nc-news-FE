@@ -23,6 +23,39 @@ h1 {
   color: black;
 }
 
+.current-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+}
+
+#current-user-name {
+  font-size: small;
+  text-align: right;
+  margin-right: 10px;
+  color: #dddddd;
+  font-style: italic;
+}
+
+.user-avatar {
+  width: 30px;
+}
+
+.user-avatar-container {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid #dddddd;
+
+}
+
+#nav-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 #nav-section {
   display: flex;
   flex-direction: row;
@@ -141,6 +174,14 @@ h1 {
   margin: 0px 20px;
 }
 
+@media only screen and (max-width: 480px) {
+  .article-img {
+    width: calc(100% - 40px);
+    float: none;
+    margin: 0px 20px;
+  }
+}
+
 .article-body {
   margin: 0px 20px;
 }
@@ -159,10 +200,19 @@ h1 {
   justify-content: space-between;
   margin: 20px;
   padding: 10px 20px;
+  flex-wrap: wrap;
   border-bottom: 3px solid #dddddd;
 }
 
-@media only screen and (min-width: 820px) {
+.vote-comments-article * {
+  margin-right: 6px;
+}
+
+.comment-count {
+  margin-right: 0px;
+}
+
+@media only screen and (min-width: 860px) {
   .vote-comments-article {
     padding: 10px 100px;
     justify-content: space-around;
@@ -332,7 +382,7 @@ h1 {
 }
 
 .topic-pill {
-  background-color: #cee1f8; 
+  background-color: #cee1f8;
   color: #186ecb;
   border-radius: 20px;
   height: 24px;
@@ -362,7 +412,7 @@ h1 {
   font-weight: 900;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 820px) {
   .filter-title {
     display: none;
   }
@@ -374,6 +424,7 @@ h1 {
   background-color: #186ecb;
   border-bottom: 1px solid #333333;
   padding: 5px 20px;
+  align-content: space-between;
 }
 
 #sortDropdown {
@@ -383,7 +434,7 @@ h1 {
   flex-shrink: 1;
   max-width: 180px;
 
-  background-color: #cee1f8; 
+  background-color: #cee1f8;
   color: #186ecb;
   border-radius: 20px;
   /* height: 20px; */
@@ -398,4 +449,16 @@ h1 {
 #sortDropdown:hover {
   background-color: #94bde9;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 550px) {
+  #sortDropdown {
+    max-width: 100%;
+    margin-right: 0px;
+    margin-top: 6px;
+
+  }
+  .filter-sort {
+    flex-direction: column;
+  }
 }
