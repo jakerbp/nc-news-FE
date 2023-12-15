@@ -12,3 +12,4 @@ language = "nodejs"
 deploymentTarget = "static"
 ignorePorts = false
 publicDir = "dist"
+build = ["sh", "-c", "npm run build"]
